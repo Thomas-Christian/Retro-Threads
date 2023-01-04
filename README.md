@@ -2,7 +2,7 @@
 
 A marketplace for buying and selling vintage and secondhand fashion items.
 
-# Color Pallete
+# Color Palette
 Primary - #202E33
 Secondary - #ECCAA9
 Tertiary - #A93D24
