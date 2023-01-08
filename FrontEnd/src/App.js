@@ -1,14 +1,20 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import SignUpForm from './components/SignUpForm';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navigation from "./components/Navigation";
+import SignUpForm from "./components/user/SignUpForm";
+import LoginForm from "./components/user/LoginForm";
+import CurrentUserProvider from "./contexts/CurrentUser";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route exact path="/user/signup" element={ <SignUpForm/> } />
-      </Routes>
-    </BrowserRouter>
-
+    <CurrentUserProvider>
+      <BrowserRouter>
+        <Navigation />
+        <Routes>
+          <Route exact path="/user/sign-up" element={<SignUpForm />} />
+          <Route exact path="/user/login" element={<LoginForm />} />
+        </Routes>
+      </BrowserRouter>
+    </CurrentUserProvider>
   );
 }
 

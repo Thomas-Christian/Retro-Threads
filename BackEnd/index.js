@@ -3,13 +3,12 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const app = express();
-const userController = require("./controllers/userController");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.use("/user", userController);
+app.use("/user", require ('./controllers/userController'));
 
 mongoose.connect('mongodb://localhost:27017', {
         useNewUrlParser: true,
