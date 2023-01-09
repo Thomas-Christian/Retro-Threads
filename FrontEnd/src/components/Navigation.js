@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { CurrentUser } from '../contexts/CurrentUser';
 
 export default function Navigation() {
@@ -38,18 +38,8 @@ export default function Navigation() {
 
     return (
         <nav>
-            <ul>
-                
-                {/* <li>
-                    <a href="#" onClick={() => history.push("/places")}>
-                        Places
-                    </a>
-                </li>
-                <li>
-                    <a href="#" onClick={() => history.push("/places/new")}>
-                        Add Place
-                    </a>
-                </li> */}
+            <ul style={{ listStyle: 'none'}}>
+                <Link to={'/'}> Home </Link>
                 {loginActions}
             </ul>
         </nav>

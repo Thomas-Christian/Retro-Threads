@@ -4,7 +4,6 @@ import { CurrentUser } from "../../contexts/CurrentUser"
 
 export default function LoginForm() {
 
-    const navigate = useNavigate();
     const { setCurrentUser } = useContext(CurrentUser)
     
     const [credentials, setCredentials] = useState({
@@ -13,6 +12,8 @@ export default function LoginForm() {
     })
 
     const [errorMessage, setErrorMessage] = useState(null)
+
+    const navigate = useNavigate();
 
       
 async function handleSubmit(e) {

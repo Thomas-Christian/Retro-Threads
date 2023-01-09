@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation";
 import SignUpForm from "./components/user/SignUpForm";
 import LoginForm from "./components/user/LoginForm";
 import CurrentUserProvider from "./contexts/CurrentUser";
+import NewItem from "./components/items/NewItem";
 
 function App() {
   return (
@@ -12,8 +13,13 @@ function App() {
         <Navigation />
         <Routes>
           <Route exact path="/" element={ <Home />} />
-          <Route exact path="/user/sign-up" element={ <SignUpForm /> } />
-          <Route exact path="/user/login" element={ <LoginForm /> } />
+
+
+          <Route path="/user/sign-up" element={ <SignUpForm /> } />
+          <Route path="/user/login" element={ <LoginForm /> } />
+
+          <Route path="/item/new" element={ <NewItem /> } />
+
         </Routes>
       </BrowserRouter>
     </CurrentUserProvider>

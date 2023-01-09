@@ -8,7 +8,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.use("/user", require ('./controllers/userController'));
+app.use('/user', require ('./controllers/userController'));
+app.use('/item', require ('./controllers/itemController'));
 
 mongoose.connect('mongodb://localhost:27017', {
         useNewUrlParser: true,
