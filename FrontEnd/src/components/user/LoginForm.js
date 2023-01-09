@@ -1,10 +1,12 @@
 import { useContext, useState } from "react"
+import { useNavigate } from 'react-router-dom';
 import { CurrentUser } from "../../contexts/CurrentUser"
 
 export default function LoginForm() {
 
+    const navigate = useNavigate();
     const { setCurrentUser } = useContext(CurrentUser)
-
+    
     const [credentials, setCredentials] = useState({
         email: '',
         password: ''
@@ -26,7 +28,9 @@ async function handleSubmit(e) {
     const data = await response.json()
 
     if (response.status === 200) {
-        setCurrentUser(data.user)
+        await setCurrentUser(data.user)
+        navigate('/')
+
     } else {
         setErrorMessage(data.message)
     }

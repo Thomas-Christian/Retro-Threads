@@ -5,7 +5,7 @@ import { CurrentUser } from '../contexts/CurrentUser';
 export default function Navigation() {
 
     const navigate = useNavigate();
-    const { currentUser } = useContext(CurrentUser)
+    const { currentUser, setCurrentUser } = useContext(CurrentUser)
 
     let loginActions = (
         <>
@@ -24,9 +24,15 @@ export default function Navigation() {
 
     if (currentUser) {
         loginActions = (
+            <> 
             <li style={{ float: 'right' }}>
                 Logged in as {currentUser.firstName} {currentUser.lastName}
+                <button onClick={() => setCurrentUser(null)}>
+                    Log Out
+                </button>
             </li>
+            
+            </>
         )
     }
 
