@@ -10,7 +10,8 @@ export default function NewItem() {
 		articleOfClothing: '',
 		styleCategory: '',
 		color: '',
-        size: ''
+        size: '',
+		user: `${currentUser.id}`
 	})
 
 	async function handleSubmit(e) {

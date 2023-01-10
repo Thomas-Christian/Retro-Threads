@@ -5,6 +5,7 @@ import SignUpForm from "./components/user/SignUpForm";
 import LoginForm from "./components/user/LoginForm";
 import CurrentUserProvider from "./contexts/CurrentUser";
 import NewItem from "./components/items/NewItem";
+import UserProfile from "./components/user/UserProfile"; 
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
 
           <Route path="/user/sign-up" element={ <SignUpForm /> } />
           <Route path="/user/login" element={ <LoginForm /> } />
+          <Route path="user/:id" element={ <UserProfile /> } />
 
           <Route path="/item/new" element={ <NewItem /> } />
 

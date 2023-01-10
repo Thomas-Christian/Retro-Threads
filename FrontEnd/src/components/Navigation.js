@@ -6,7 +6,7 @@ export default function Navigation() {
 
     const navigate = useNavigate();
     const { currentUser, setCurrentUser } = useContext(CurrentUser)
-
+    
     let loginActions = (
         <>
             <li style={{ float: 'right' }}>
@@ -23,10 +23,11 @@ export default function Navigation() {
     )
 
     if (currentUser) {
+        const userID = currentUser.id
         loginActions = (
             <> 
             <li style={{ float: 'right' }}>
-                Logged in as {currentUser.firstName} {currentUser.lastName}
+                Logged in as <Link to={`/user/${userID}`}>{currentUser.firstName} {currentUser.lastName}</Link>
                 <button onClick={() => setCurrentUser(null)}>
                     Log Out
                 </button>

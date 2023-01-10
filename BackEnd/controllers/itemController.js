@@ -2,6 +2,7 @@ const express = require("express");
 const item = express.Router();
 
 const Item = require('../models/item');
+const User = require(`../models/user`)
 
 // CREATE
 item.post('/new', async (req, res) => {
@@ -19,5 +20,8 @@ item.post('/new', async (req, res) => {
        console.log(error)
     }
  })
+
+ // SHOW ALL ITEMS
+
 
   module.exports = item
