@@ -1,22 +1,33 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function Home() {
 
-    // let showItems = (
-    //     <>
-    //     {items.map((item) => {
-    //         return (
-    //             <h1>
-    //                 {item._id}
-    //             </h1>
-    //         )
-    //     })}
-    //     </>
-    // )
+    const [items, setItems] = useState([]);
+
+// FETCHING ITEMS DATA
+  useEffect(() => {
+    const fetchItems = async () => {
+      const response = await fetch(`http://localhost:5000/item/view/all`);
+      const data = await response.json();
+      setItems(data);
+    };
+    fetchItems();
+  });
+
+
+
     return (
         <>
         <h1> HOME PAGE </h1>
-        {/* { showItems } */}
+        <div>
+        {items && items.map((item) => 
+        <> 
+        <h1> {item.name} </h1>
+        <Link to={`/item/view/${item._id}`}> View </Link>
+        </>
+        )}
+        </div>
         <Link to={'/item/new'}> Post Your Own </Link>
         </>
     )

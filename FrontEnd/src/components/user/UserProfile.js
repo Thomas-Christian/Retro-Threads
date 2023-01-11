@@ -6,19 +6,20 @@ export default function UserProfile() {
   const { currentUser } = useContext(CurrentUser);
   const [user, setUser] = useState([]);
 
-  let URL = useParams();
-
+  let params = useParams();
   let userID;
 
+  // CHECKING IF LOGGED IN AS A USER
   const LoggedIn = () => {
     if (!currentUser) {
-      userID = URL.id;
+      userID = params.id;
     } else {
       userID = currentUser.id;
     }
   };
   LoggedIn();
 
+  // FETCHING USER DATA
   useEffect(() => {
     const fetchUser = async () => {
       const response = await fetch(`http://localhost:5000/user/${userID}`);
@@ -28,7 +29,7 @@ export default function UserProfile() {
     fetchUser();
   }, [userID]);
 
-  console.log(user.items);
+  //console.log(user.items);
 
   return (
     <div>

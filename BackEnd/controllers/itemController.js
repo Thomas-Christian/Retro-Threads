@@ -2,7 +2,7 @@ const express = require("express");
 const item = express.Router();
 
 const Item = require('../models/item');
-const User = require(`../models/user`)
+//const User = require(`../models/user`)
 
 // CREATE
 item.post('/new', async (req, res) => {
@@ -13,7 +13,7 @@ item.post('/new', async (req, res) => {
           ...etc, 
        }).save()
  
-       res.send(item)
+       res.status(200).send(item)
  
     } catch (error) {
        res.status(500).json({message: `Unable to add Item: ${ error }`})
@@ -21,7 +21,26 @@ item.post('/new', async (req, res) => {
     }
  })
 
- // SHOW ALL ITEMS
+// SHOW ALL ITEMS
+item.get('/view/all', async (req, res) => {
+   try {
+      let items = await Item.find()
 
+      res.status(200).send(items)
+     
+   } catch (error) {
+      res.status(500).json({message: `Error Retreiving Items: ${error}`})
+   }
+})
+
+// SHOW SPECIFIC ITEM
+item.get('/view/:id', async (req, res) => {
+   try{
+      let item = await Item.findById(req.params.id)
+      res.status(200).send(item)
+   } catch (error) {
+      res.status(500).json({message: `Error Retreiving Item: ${error}`})
+   }
+})
 
   module.exports = item
