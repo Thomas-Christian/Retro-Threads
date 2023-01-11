@@ -11,7 +11,7 @@ export default function NewItem() {
 		styleCategory: '',
 		color: '',
         size: '',
-		user: `${currentUser.id}`
+		user: `${currentUser ? `currentUser.id` : `null`}`
 	})
 
 	async function handleSubmit(e) {
