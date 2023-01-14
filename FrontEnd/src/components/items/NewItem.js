@@ -13,7 +13,7 @@ export default function NewItem() {
 		color: '',
         size: '',
 		user: `${currentUser ? `${currentUser.id}` : `null`}`,
-		img: ''	
+		img: []
 	})
 
 	const [selectedFile, setSelectedFile] = useState()

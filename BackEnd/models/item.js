@@ -30,7 +30,7 @@ const itemSchema = new Schema({
   },
 
   img: {
-    type: String
+    type: Array
 
   }
 

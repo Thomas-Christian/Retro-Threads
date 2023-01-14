@@ -3,17 +3,24 @@ import {Buffer} from 'buffer';
 
 export const ImageUploader = ({setIsSelected, isSelected, setSelectedFile, selectedFile, setItem, item}) => {
 
-   
+    let imageArray = []
+    
     const changeHandler = (e) => {
 
-        let file = e.target.files[0]
+        let files = e.target.files
 
-        setSelectedFile(file)
-        setIsSelected(true)
+        // setSelectedFile(file)
+        // setIsSelected(true)
         
-        if (file) { 
-            readFile(file) }
-        
+        if (files) { 
+            for (var i = 0; i < files.length; i++) {
+                readFile(files[i]);
+            }
+
+            setItem({ ...item, img: imageArray })
+        }
+
+
     }
 
     const readFile = (file) => {
@@ -28,9 +35,9 @@ export const ImageUploader = ({setIsSelected, isSelected, setSelectedFile, selec
 
           let encodedFile = Buffer.from(fileContent).toString('base64')
 
-          //console.log(encodedFile)
-        
-          setItem({ ...item, img: encodedFile })
+          imageArray.push(encodedFile)
+
+          //console.log(imageArray)
 
         };
     };
@@ -38,7 +45,7 @@ export const ImageUploader = ({setIsSelected, isSelected, setSelectedFile, selec
     
     return ( 
     <div> 
-        <input type={'file'} name='file' accept="image/*" onChange={changeHandler} />
+        <input multiple type={'file'} name='file' accept="image/*" onChange={changeHandler} />
         {isSelected ? (
             <div>
                 <p>Filename: {selectedFile.name}</p>
