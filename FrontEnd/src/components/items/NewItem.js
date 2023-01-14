@@ -1,5 +1,6 @@
-import { useState, useContext } from "react"
+import React, { useState, useContext } from "react"
 import { CurrentUser } from '../../contexts/CurrentUser';
+import { ImageUploader } from './ImageUploader'
 
 export default function NewItem() {
 
@@ -8,15 +9,22 @@ export default function NewItem() {
 	const [item, setItem] = useState({
 		name: '',
 		articleOfClothing: '',
-		styleCategory: '',
+		styleCategory: 'Vintage',
 		color: '',
         size: '',
-		user: `${currentUser ? `currentUser.id` : `null`}`
+		user: `${currentUser ? `${currentUser.id}` : `null`}`,
+		img: ''	
 	})
 
+	const [selectedFile, setSelectedFile] = useState()
+	const [isSelected, setIsSelected] = useState(false)
+
+	
 	async function handleSubmit(e) {
 		e.preventDefault()
 
+		console.log(item)
+		
 		await fetch(`http://localhost:5000/item/new`, {
 			method: 'POST',
 			headers: {
@@ -62,6 +70,24 @@ export default function NewItem() {
 							name="itemType"
 						/>
 					</div>
+
+
+
+					<div className="col-sm-6 form-group">
+						<label htmlFor="itemImage">Upload Image</label>
+
+						<ImageUploader 
+							selectedFile = {selectedFile}
+							setSelectedFile = {setSelectedFile}
+							setIsSelected = {setIsSelected}
+							isSelected = {isSelected}
+							setItem = {setItem}
+							item = {item}
+						/>
+					</div>
+
+
+					
 				</div>
 				<div className="row">
 					<div className="col-sm-6 form-group">
@@ -69,7 +95,7 @@ export default function NewItem() {
 						<select 
                         id="itemStyle" 
                         className="itemStyle"
-                        value={item.styleCategory}
+                        defaultValue={item.styleCategory}
                         onChange={e => setItem({ ...item, styleCategory: e.target.value })}>
 
                                 <option value={"Y2K"}> Y2K </option>
@@ -80,7 +106,9 @@ export default function NewItem() {
                         </select>
 					</div>
 				</div>
-				<input className="btn btn-primary" type="submit" value="Post" />
+				
+				<button onClick={handleSubmit}> Submit </button>
+
 			</form>
 		</main>
         )

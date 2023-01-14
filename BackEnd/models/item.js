@@ -2,17 +2,21 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const itemSchema = new Schema({
-  name: { type: String, required: true },
+
+  name: { 
+    type: String, 
+    //required: true 
+  },
 
   articleOfClothing: {
     type: String,
-    required: true,
+    //required: true,
     enum: ["Top", "Pants", "Shorts", "Skirt", "Shoes"],
   },
 
   styleCategory: {
     type: String,
-    required: true,
+    //required: true,
     enum: ["Y2K", "Streetwear", "Designer", "Vintage"],
   },
 
@@ -23,7 +27,13 @@ const itemSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User'
+  },
+
+  img: {
+    type: String
+
   }
+
 });
 
 //EXPORT

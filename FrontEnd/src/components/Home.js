@@ -13,7 +13,7 @@ export default function Home() {
       setItems(data);
     };
     fetchItems();
-  });
+  }, [setItems]);
 
 
 
