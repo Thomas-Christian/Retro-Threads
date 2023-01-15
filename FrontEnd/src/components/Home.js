@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Home() {
 
@@ -19,7 +19,7 @@ export default function Home() {
 
     return (
         <>
-        <h1> HOME PAGE </h1>
+        {/* <h1> HOME PAGE </h1>
         <div>
         {items && items.map((item) => 
         <> 
@@ -28,7 +28,7 @@ export default function Home() {
         </>
         )}
         </div>
-        <Link to={'/item/new'}> Post Your Own </Link>
+        <Link to={'/item/new'}> Post Your Own </Link> */}
         </>
     )
 }

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import React, { useContext, useState } from "react"
 import { useNavigate } from 'react-router-dom';
 import { CurrentUser } from "../../contexts/CurrentUser"
 
@@ -38,7 +38,7 @@ async function handleSubmit(e) {
 }
 
     return (
-        <main>
+        <>
             <h1>Login</h1>
             {errorMessage !== null
                 ? (
@@ -77,6 +77,6 @@ async function handleSubmit(e) {
                 </div>
                 <input className="btn btn-primary" type="submit" value="Login" />
             </form>
-        </main>
+        </>
     )
 }
