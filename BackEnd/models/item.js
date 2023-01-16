@@ -24,6 +24,8 @@ const itemSchema = new Schema({
 
   size: { type: String },
 
+  description: { type: String },
+
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User'
@@ -31,7 +33,6 @@ const itemSchema = new Schema({
 
   img: {
     type: Array
-
   }
 
 });

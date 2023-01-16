@@ -1,7 +1,6 @@
 import React from "react"
-import {Buffer} from 'buffer';
 
-export const ImageUploader = ({setIsSelected, isSelected, setSelectedFile, selectedFile, setItem, item}) => {
+export const ImageUploader = ({setItem, item}) => {
 
     let imageArray = []
     
@@ -27,17 +26,14 @@ export const ImageUploader = ({setIsSelected, isSelected, setSelectedFile, selec
 
         const fileReader = new FileReader();
 
-        fileReader.readAsArrayBuffer(file);
+        fileReader.readAsDataURL(file);
 
         fileReader.onloadend = () => {
 
           let fileContent = fileReader.result;
 
-          let encodedFile = Buffer.from(fileContent).toString('base64')
+          imageArray.push(fileContent)
 
-          imageArray.push(encodedFile)
-
-          //console.log(imageArray)
 
         };
     };
@@ -45,20 +41,7 @@ export const ImageUploader = ({setIsSelected, isSelected, setSelectedFile, selec
     
     return ( 
     <div> 
-        <input multiple type={'file'} name='file' accept="image/*" onChange={changeHandler} />
-        {isSelected ? (
-            <div>
-                <p>Filename: {selectedFile.name}</p>
-                <p>Filetype: {selectedFile.type}</p>
-                <p>Size in bytes: {selectedFile.size}</p>
-                <p>
-                    lastModifiedDate:{' '}
-                    {selectedFile.lastModifiedDate.toLocaleDateString()}
-                </p>
-            </div>
-        ) : (
-            <p>Select a file to show details</p>
-        )}
+        <input className="form-input-style" multiple type={'file'} name='file' accept="image/*" onChange={changeHandler} />
     </div>
     )
 }

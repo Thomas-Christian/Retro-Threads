@@ -64,6 +64,18 @@ item.get('/view/all', async (req, res) => {
    }
 })
 
+// SHOW ITEMS FOR HOMEPAGE
+item.get('/view/home', async (req, res) => {
+   try {
+      let items = await Item.find().limit(3)
+
+      res.status(200).send(items)
+     
+   } catch (error) {
+      res.status(500).json({message: `Error Retreiving Items: ${error}`})
+   }
+})
+
 // SHOW SPECIFIC ITEM
 item.get('/view/:id', async (req, res) => {
    try{

@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+
+    .form-input-style {
+      @apply block py-2 px-2 w-full bg-gray-500 text-white border border-gray-300 font-semibold rounded-lg shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+    }
+    .form-label-style {
+      @apply block text-sm font-medium text-gray-900
+    }
+
+
+
+    .btn-primary {
+      @apply bg-teal-100 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2 rounded inline-flex items-center m-auto justify-self-center
+    }
+  }
