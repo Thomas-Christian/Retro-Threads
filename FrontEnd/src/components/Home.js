@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ViewItems from "./items/ViewItems";
 
+// import backgroundImage from '../images/42331.jpg'
+
 export default function Home() {
 
     const [items, setItems] = useState([]);
@@ -16,29 +18,30 @@ export default function Home() {
     fetchItems();
   }, [setItems]);
 
-
-
     return (
+      <>
+        
+        {/* bg-cover bg-repeat bg-center bg-fixed bg-[url('./images/42331.jpg')] */}
+        
+        <div id="screen" className="h-full w-full top-0 absolute flex flex-col items-center pl-[3.25rem] justify-evenly" >
 
-      <div className="flex flex-col mt-8 ml-[3.25rem] items-center justify-center px-6 py-8">
+          
 
-        <ViewItems 
-        setItems = {setItems} 
-        items = {items} />
+          <div id="heroText" className="text-black bottom-10 relative w-[85%]">
 
-        <div class="text-black text-center relative bottom-3">
+            <h4 className="font-secondary text-center font-bold italic text-md leading-snug px-3 py-3">
+              a marketplace for buying and selling vintage and secondhand
+              fashion items
+            </h4>
 
-          <h4 class="font-semibold uppercase text-lg leading-snug mb-6">
-            A marketplace for buying and selling vintage and secondhand fashion items
-          </h4>
+          </div>
 
-          <button className="inline-block px-7 py-3 mb-1 border-2 border-gray-200 text-gray-200 font-medium text-sm leading-snug uppercase rounded hover:bg-black hover:bg-opacity-5"> 
-            Learn More
-          </button>
+          <ViewItems setItems={setItems} items={items} />
+
+          
+
         </div>
 
-      </div>
-        
-        
-    )
+      </>
+    );
 }
