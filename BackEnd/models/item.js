@@ -11,7 +11,7 @@ const itemSchema = new Schema({
   articleOfClothing: {
     type: String,
     //required: true,
-    enum: ["Top", "Pants", "Shorts", "Skirt", "Shoes"],
+    enum: ["Top", "Pants", "Shorts", "Outerwear", "Dress", "Skirt", "Shoes"],
   },
 
   styleCategory: {

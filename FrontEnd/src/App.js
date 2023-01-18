@@ -9,6 +9,7 @@ import CurrentUserProvider from "./contexts/CurrentUser";
 import NewItem from "./components/items/NewItem";
 import UserProfile from "./components/user/UserProfile"; 
 import ViewItems from "./components/items/ViewItems";
+import ViewSingleItem from "./components/items/ViewSingleItem";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         
           <Route path="/item/new" element={ <NewItem /> } />
           <Route path='/item/view/all' element={ <ViewItems />} />
+          <Route path="/item/view/:id" element={ <ViewSingleItem /> } />
 
         </Routes>
 

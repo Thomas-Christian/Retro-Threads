@@ -67,7 +67,7 @@ item.get('/view/all', async (req, res) => {
 // SHOW ITEMS FOR HOMEPAGE
 item.get('/view/home', async (req, res) => {
    try {
-      let items = await Item.find().limit(3)
+      let items = await Item.find().limit(5)
 
       res.status(200).send(items)
      

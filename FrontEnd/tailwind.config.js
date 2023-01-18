@@ -9,6 +9,10 @@ module.exports = {
 
     extend: {
 
+      backgroundImage: {
+        'hero': "url('/src/images/bg.jpg')"
+      },
+
       fontFamily: {
         'lily-script' : ['Lily Script One', 'cursive'],
 
@@ -19,13 +23,20 @@ module.exports = {
       },
 
       animation: {
-        'ltr-linear-infinite': 'ltr-linear-infinite 10s linear infinite',
+        'ltr-linear-infinite': 'ltr-linear-infinite 30s linear infinite',
       },
 
       keyframes: {
         'ltr-linear-infinite': {
-          'from': { 'background-position': '0 0' },
-          'to': { 'background-position': '400% 0%' },
+          "0%" : { 
+            'background-position': '0 0',
+             'opacity' : '.8'
+          },
+
+          '100%': { 
+            'background-position': '0% 75%',
+            'opacity' : '.8'
+           },
         },
 
       }

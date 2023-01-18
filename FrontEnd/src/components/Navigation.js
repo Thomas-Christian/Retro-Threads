@@ -141,7 +141,7 @@ export default function Navigation() {
         )
 
         appRoutes = (
-            <div id='appRoutes' className='text-center static bottom-1'>
+            <div id='appRoutes' className='text-center absolute bottom-1'>
 
             <li id='home' className='py-3 group'>
 
@@ -211,7 +211,7 @@ export default function Navigation() {
     return (
         <> 
 
-        <div id='sideNav' className="fixed top-0 left-0 z-10 h-screen px-2 py-2
+        <div id='sideNav' className="fixed top-0 left-0 z-20 h-screen px-2 py-2
                         flex flex-col 
                         bg-gray-500 text-white shadow-md">
 
@@ -222,15 +222,6 @@ export default function Navigation() {
 
 
         </div>
-
-        
-            <div id='logo' className='flex flex-col pl-[3.25rem] items-center sticky top-0 z-10'>
-
-            <h1 className='text-4xl sm:text-6xl font-lily-script text-center text-black p-3 mt-2 bg-cyan-200 rounded-xl'> 
-            RetroThreads </h1>
-
-            </div>
-
         
         </>
     )

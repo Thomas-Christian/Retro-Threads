@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ViewItems from "./items/ViewItems";
 
-// import backgroundImage from '../images/42331.jpg'
-
 export default function Home() {
 
     const [items, setItems] = useState([]);
@@ -21,24 +19,28 @@ export default function Home() {
     return (
       <>
         
-        {/* bg-cover bg-repeat bg-center bg-fixed bg-[url('./images/42331.jpg')] */}
-        
-        <div id="screen" className="h-full w-full top-0 absolute flex flex-col items-center pl-[3.25rem] justify-evenly" >
 
-          
+        <div id="screen" className="w-full min-h-screen top-0 absolute flex flex-col items-center pl-[3.25rem]
+        bg-scroll bg-hero bg-center bg-repeat animate-ltr-linear-infinite -z-20">
 
-          <div id="heroText" className="text-black bottom-10 relative w-[85%]">
+        <div id='logo' className='flex flex-col items-center z-10'>
 
-            <h4 className="font-secondary text-center font-bold italic text-md leading-snug px-3 py-3">
-              a marketplace for buying and selling vintage and secondhand
-              fashion items
-            </h4>
+        <h1 className='text-5xl sm:text-6xl tracking-wide font-lily-script text-center font-bold text-neutral-200 p-3 [text-shadow:_1px_5px_2px_black]' >  
+        RetroThreads </h1>
 
-          </div>
+        </div>
 
           <ViewItems setItems={setItems} items={items} />
 
           
+          <div id="header" className="text-black">
+
+              <h4 className="font-secondary text-center font-bold italic text-md leading-snug p-3 ">
+                a marketplace for buying and selling vintage and secondhand
+                fashion items
+              </h4>
+
+          </div>
 
         </div>
 
