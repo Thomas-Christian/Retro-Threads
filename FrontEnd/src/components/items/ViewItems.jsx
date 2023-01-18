@@ -1,21 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useNavigate } from 'react-router-dom';
 
-export default function ViewItems({items, setItems}) {
+export default function ViewItems({items}) {
 
   const navigate = useNavigate();
-
-  // FETCHING ITEMS DATA
-  useEffect(() => {
-    const fetchItems = async () => {
-      const response = await fetch(`http://localhost:5000/item/view/all`);
-      const data = await response.json();
-      setItems(data);
-    };
-    fetchItems();
-  },[setItems]);
 
   return (
 
@@ -23,7 +13,7 @@ export default function ViewItems({items, setItems}) {
 
         {items && items.map((item) => 
 
-          <div className="rounded-lg bg-slate-200 shadow-md m-4 w-72"> 
+          <div className="rounded-lg bg-slate-200 shadow-md m-4 w-64"> 
 
             <div className="p-3 flex flex-col items-center">
 

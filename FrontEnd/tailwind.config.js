@@ -24,6 +24,7 @@ module.exports = {
 
       animation: {
         'ltr-linear-infinite': 'ltr-linear-infinite 30s linear infinite',
+        'spin-slow': 'spin 3s linear infinite'
       },
 
       keyframes: {

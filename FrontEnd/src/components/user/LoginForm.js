@@ -1,3 +1,5 @@
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useState } from "react"
 import { useNavigate } from 'react-router-dom';
 import { CurrentUser } from "../../contexts/CurrentUser"
@@ -12,12 +14,16 @@ export default function LoginForm() {
     })
 
     const [errorMessage, setErrorMessage] = useState(null)
+    const [loading, setLoading] = useState(false)
 
     const navigate = useNavigate();
 
       
 async function handleSubmit(e) {
     e.preventDefault()
+
+    setLoading(true)
+
     const response = await fetch(`http://localhost:5000/user/login`, {
         method: 'POST',
         headers: {
@@ -30,12 +36,26 @@ async function handleSubmit(e) {
 
     if (response.status === 200) {
         await setCurrentUser(data.user)
+        setLoading(false)
         navigate('/')
 
     } else {
         setErrorMessage(data.message)
     }
 }
+    if (loading) {
+        return (
+            <div className="flex flex-col h-screen ml-[3.25rem] items-center justify-center px-6 py-8"> 
+                
+                
+                <h1 className="text-4xl font-lily-script tracking-wide text-center font-bold p-3 "> Loading </h1>
+                <FontAwesomeIcon className="animate-spin-slow text-slate-600" icon={faCircleNotch} fixedWidth size="2xl"/> 
+                
+
+            </div>
+
+        )
+    }
 
     return (
 
@@ -68,8 +88,6 @@ async function handleSubmit(e) {
                             className="form-input-style" placeholder="name@company.com">
                         </input>
 
-                    
-
                         <label htmlFor="password" className="form-label-style"> Password: </label>
                         <input
                             required
@@ -83,7 +101,6 @@ async function handleSubmit(e) {
                     <button type="submit" className="btn-primary"> Let's Go! </button>
                     </div>
                     
-
             </form>
 
         </div>
