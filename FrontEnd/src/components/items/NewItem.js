@@ -59,15 +59,15 @@ export default function NewItem() {
 
 			<div className="flex flex-col h-screen ml-[3.25rem] items-center justify-center px-6 py-8">
 
-			<div className="w-full bg-slate-300 rounded-lg shadow md:mt-0 sm:max-w-lg xl:p-0">
+			<div className="w-full bg-primary rounded-lg shadow md:mt-0 sm:max-w-lg xl:p-0">
 
-			<h1 className="text-xl text-center underline font-bold p-2 leading-tight tracking-tight text-gray-900 md:text-2xl">
+			<h1 className="text-xl text-center font-bold p-2  text-secondary md:text-2xl">
 				Post Your Item </h1>
 
-			<form onSubmit={handleSubmit} className="m-1 space-y-4 md:space-y-6 p-2">
+			<form onSubmit={handleSubmit} className="m-1 p-2">
 
-				<div className="form-group">
-					<label htmlFor="itemTitle" className="block text-sm font-medium text-gray-900"> Title: </label>
+				<div className="form-group w-full flex flex-col">
+					<label htmlFor="itemTitle" className="block form-label-style"> Title: </label>
 					<input
 						required
 						value={item.name}
@@ -82,13 +82,13 @@ export default function NewItem() {
 
 					<div className="flex">
 					<label htmlFor="itemStyle" className="w-3/5 form-label-style"> Style: </label>
-					<label htmlFor="itemType" className="w-1/2 form-label-style"> Type: </label>
+					<label htmlFor="itemType" className="w-2/5 form-label-style"> Type: </label>
 					</div>
 
 					<div className="flex justify-between"> 
 					<select 
 						id="itemStyle" 
-						className="form-input-style w-1/2"
+						className="form-input-style w-3/5"
 						defaultValue={item.styleCategory}
 						onChange={e => setItem({ ...item, styleCategory: e.target.value })}>
 
@@ -101,7 +101,7 @@ export default function NewItem() {
 
 					<select 
 						id="itemType" 
-						className="form-input-style w-1/2"
+						className="form-input-style w-2/5"
 						defaultValue={item.articleOfClothing}
 						onChange={e => setItem({ ...item, articleOfClothing: e.target.value })}>
 
@@ -132,7 +132,7 @@ export default function NewItem() {
 						onChange={e => setItem({ ...item, color: e.target.value })}
 						id="itemTitle"
 						name="itemTitle"
-						className="form-input-style"
+						className="form-input-style w-1/2"
 					/>
 					
 					<input
@@ -141,20 +141,20 @@ export default function NewItem() {
 						onChange={e => setItem({ ...item, size: e.target.value })}
 						id="itemTitle"
 						name="itemTitle"
-						className="form-input-style"
+						className="form-input-style w-1/2"
 					/>
 					</div>
 				</div>
 
-				<div className="form-group">
-					<label htmlFor="itemDescription" className="block text-sm font-medium text-gray-900"> Description: </label>
-					<input
+				<div className="form-group flex flex-col">
+					<label htmlFor="itemDescription" className="block form-label-style"> Description: </label>
+					<textarea
 						required
 						value={item.description}
 						onChange={e => setItem({ ...item, description: e.target.value })}
 						id="itemDescription"
 						name="itemDescription"
-						className="form-input-style"
+						className="form-input-style h-24"
 					/>
 				</div>
 

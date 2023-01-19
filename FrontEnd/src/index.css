@@ -5,15 +5,22 @@
 @layer components {
 
     .form-input-style {
-      @apply block py-2 px-2 w-full bg-gray-500 text-white border border-gray-300 font-semibold rounded-lg shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+      @apply block mb-6 mx-2 py-2 px-2 bg-tertiary text-secondary border border-gray-300 font-semibold rounded-lg shadow-md hover:bg-primary focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
     }
+
     .form-label-style {
-      @apply block text-sm font-medium text-gray-900
+      @apply block mx-2 my-1 text-lg font-medium text-quaternary
     }
-
-
 
     .btn-primary {
-      @apply bg-teal-100 hover:bg-gray-400 text-gray-800 font-bold p-2 rounded inline-flex items-center mx-auto justify-self-center ring-1 ring-black
+      @apply bg-primary hover:bg-gray-400 text-secondary font-bold p-2 rounded inline-flex items-center mx-auto justify-self-center 
+    }
+
+    .tooltip-text {
+      @apply bg-primary rounded hidden whitespace-nowrap group-hover:inline-flex absolute text-sm uppercase left-14 py-1 px-3 
+    }
+
+    .nav-btn {
+      @apply text-tertiary font-bold py-1 px-2 rounded inline-flex items-center m-auto
     }
   }

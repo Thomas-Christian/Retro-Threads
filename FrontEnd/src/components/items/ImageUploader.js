@@ -40,8 +40,8 @@ export const ImageUploader = ({setItem, item}) => {
 
     
     return ( 
-    <div> 
-        <input className="form-input-style" multiple type={'file'} name='file' accept="image/*" onChange={changeHandler} />
+    <div className="flex"> 
+        <input className="form-input-style w-full file:mr-3 file:rounded-full file:bg-primary file:text-sm file:text-secondary" multiple type={'file'} name='file' accept="image/*" onChange={changeHandler} />
     </div>
     )
 }

@@ -48,8 +48,8 @@ async function handleSubmit(e) {
             <div className="flex flex-col h-screen ml-[3.25rem] items-center justify-center px-6 py-8"> 
                 
                 
-                <h1 className="text-4xl font-lily-script tracking-wide text-center font-bold p-3 "> Loading </h1>
-                <FontAwesomeIcon className="animate-spin-slow text-slate-600" icon={faCircleNotch} fixedWidth size="2xl"/> 
+                <h1 className="text-4xl font-lily-script tracking-wide text-center text-primary font-bold p-3 "> Loading </h1>
+                <FontAwesomeIcon className="animate-spin-slow text-quaternary" icon={faCircleNotch} fixedWidth size="2xl"/> 
                 
 
             </div>
@@ -61,13 +61,13 @@ async function handleSubmit(e) {
 
         <div className="flex flex-col h-screen ml-[3.25rem] items-center justify-center px-6 py-8"> 
 
-        <div className="w-full bg-slate-300 rounded-lg shadow md:mt-0 sm:max-w-lg xl:p-0">
+        <div className="w-full bg-primary rounded-lg shadow md:mt-0 sm:max-w-lg xl:p-0">
 
-            <h1 className="text-xl text-center underline font-bold p-2 leading-tight tracking-tight text-gray-900 md:text-2xl">
+            <h1 className="text-xl text-center font-bold p-2 text-secondary md:text-2xl">
                   Sign in
             </h1>
 
-            {errorMessage !== null
+            { errorMessage !== null
                 ? (
                     <div className="alert" role="alert">
                         {errorMessage}
@@ -76,7 +76,7 @@ async function handleSubmit(e) {
                 : null
             }
 
-            <form className="m-1 space-y-4 md:space-y-6 p-2" onSubmit={handleSubmit}>
+            <form className="m-2 p-2" onSubmit={handleSubmit}>
 
                         <label htmlFor="email" className="form-label-style"> Email: </label>
 

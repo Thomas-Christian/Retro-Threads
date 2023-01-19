@@ -9,8 +9,27 @@ module.exports = {
 
     extend: {
 
+      colors: {
+
+        'primary' : '#202E33',
+
+        'secondary' : '#ECCAA9',
+      
+        'tertiary' : '#81667A',
+      
+        'quaternary' : '#30D9C8',
+
+        'quintiary' : '#E75A7C'
+      },
+
       backgroundImage: {
-        'hero': "url('/src/images/bg.jpg')"
+        'hero': "url('/src/images/bg.jpg')",
+
+        'slide-1': "url('/src/images/images.jpg')",
+        'slide-2': "url('/src/images/download.jpg')",
+        'slide-3': "url('/src/images/download1.jpg')",
+        'slide-4': "url('/src/images/download2.jpg')",
+
       },
 
       fontFamily: {
@@ -24,7 +43,8 @@ module.exports = {
 
       animation: {
         'ltr-linear-infinite': 'ltr-linear-infinite 30s linear infinite',
-        'spin-slow': 'spin 3s linear infinite'
+        'spin-slow': 'spin 3s linear infinite',
+        'carousel': 'carouselAnim 50s infinite linear'
       },
 
       keyframes: {
@@ -35,10 +55,19 @@ module.exports = {
           },
 
           '100%': { 
-            'background-position': '0% 75%',
+            'background-position': '0% 300%',
             'opacity' : '.8'
            },
         },
+        'carouselAnim' : {
+          'from' : {
+            'transform': 'translate(-75rem, 0)'
+          },
+
+          'to' : {
+            'transform': 'translate(75rem, 0)'
+          }
+        }
 
       }
 

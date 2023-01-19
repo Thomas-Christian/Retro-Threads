@@ -60,19 +60,19 @@ item.get('/view/all', async (req, res) => {
       res.status(200).send(items)
      
    } catch (error) {
-      res.status(500).json({message: `Error Retreiving Items: ${error}`})
+      res.status(500).json({message: `Error Retreiving Items: ${ error }`})
    }
 })
 
 // SHOW ITEMS FOR HOMEPAGE
 item.get('/view/home', async (req, res) => {
    try {
-      let items = await Item.find().limit( 5 )
+      let items = await Item.find().limit(5)
 
       res.status(200).send(items)
      
    } catch (error) {
-      res.status(500).json({message: `Error Retreiving Items: ${error}`})
+      res.status(500).json({message: `Error Retreiving Items: ${ error }`})
    }
 })
 
@@ -82,7 +82,7 @@ item.get('/view/:id', async (req, res) => {
       let item = await Item.findById(req.params.id)
       res.status(200).send(item)
    } catch (error) {
-      res.status(500).json({message: `Error Retreiving Item: ${error}`})
+      res.status(500).json({message: `Error Retreiving Item: ${ error }`})
    }
 })
 
