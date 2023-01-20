@@ -17,7 +17,7 @@
     }
 
     .tooltip-text {
-      @apply bg-primary rounded hidden whitespace-nowrap group-hover:inline-flex absolute text-sm uppercase left-14 py-1 px-3 
+      @apply bg-primary text-center rounded hidden whitespace-nowrap group-hover:inline-flex absolute text-sm uppercase left-14 py-1 px-3 
     }
 
     .nav-btn {

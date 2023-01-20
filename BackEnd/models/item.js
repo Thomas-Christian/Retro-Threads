@@ -1,11 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const itemSchema = new Schema({
-
-  name: { 
-    type: String, 
-    //required: true 
+  name: {
+    type: String,
+    //required: true
   },
 
   articleOfClothing: {
@@ -28,14 +27,13 @@ const itemSchema = new Schema({
 
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: "User",
   },
 
   img: {
-    type: Array
-  }
-
+    type: Array,
+  },
 });
 
 //EXPORT
-module.exports = mongoose.model('Item', itemSchema);
+module.exports = mongoose.model("Item", itemSchema);
