@@ -61,7 +61,7 @@ module.exports = {
         },
         'carouselAnim' : {
           'from' : {
-            'transform': 'translate(-75rem, 0)'
+            'transform': 'translate(-65rem, 0)'
           },
 
           'to' : {

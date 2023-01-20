@@ -28,49 +28,79 @@ export default function ViewSingleItem() {
             
         itemImages = selectedItem.img.map((image) => 
                       
-            <img key={''} className="object-cover object-bottom h-36 w-36 rounded-lg m-2" src={`${image}`} alt="" /> 
+            <img key={''} className="object-cover object-bottom flex-shrink w-[50rem] rounded-lg m-2" src={`${image}`} alt="" /> 
         )
         }
 
     return (
 
-            <div id="itemContainer" className="h-full flex flex-wrap flex-row justify-center">
+          <div id="screen" className="w-full min-h-screen top-0 absolute flex flex-col items-center justify-center pl-[3.25rem]
+          bg-scroll bg-hero bg-center bg-repeat -z-20"> 
+
+            <div id="itemContainer" className="h-full flex flex-col rounded-lg bg-secondary shadow-md ">
         
-                  <div className="rounded-lg bg-slate-200 shadow-md m-4 w-72"> 
+                  
+                    
         
-                    <div className="p-3 flex flex-col items-center">
-        
-                    <h2 className="text-xl font-bold tracking-tight text-gray-900 font-secondary w-full underline underline-offset-4 text-center px-2"> {selectedItem.name} </h2>
-        
-                      <div className="flex flex-row w-full text-center">
+                      <div id="images" className="flex flex-row justify-evenly px-3 pt-3">
 
                         {itemImages}
+
+                      </div> 
         
-                      <div className="flex flex-col w-full justify-between"> 
-        
-                      <p className="mt-2 font-normal text-gray-700 font-primary">
-                      {selectedItem.description}
-                      </p>
-                    
-                    <button className="btn-primary h-6 mb-2" 
+                      <div id="item-details" className="flex flex-row w-full h-full justify-between"> 
+
+                        <div className="flex flex-col w-[65%] m-6"> 
+
+                        <h2 className="text-2xl font-bold text-primary font-secondary w-full text-center py-2 capitalize"> {selectedItem.name} </h2>
+
+                          <div className="flex flex-row h-full text-sm sm:text-base">
+                          <h1 className="font-normal text-gray-700 font-primary w-2/3 h-full space-y-3">
+                            
+                            <p className="pb-3"> About The Item: </p>
+
+                            <p> { selectedItem.description} </p>
+                          </h1>
+
+                          <h1 className="font-normal text-gray-700 font-primary w-1/3 h-full space-y-3">
+                            <p className="pb-4"> Specific Details: </p>
+
+                            <p> Style - {selectedItem.styleCategory} </p>
+                            <p> Size - {selectedItem.size} </p> 
+                            <p> Color - {selectedItem.color} </p>
+                                
+                          </h1>
+
+                          </div>
+
+                          
+
+                        </div>
+
+                        <div className="flex flex-col justify-center text-center m-2 w-[25%]">
+
+                          <p className="font-normal text-gray-700 font-primary m-4"> Owner's Page </p> 
+                          <button className="btn-primary text-quaternary" 
                         
                         onClick={() => {navigate(`/user/${selectedItem.user}`)}}>
         
                             <p className="font-lily-script font-thin text-base"> User </p>
         
-                    </button>
+                          </button>
+                        </div>
         
-                    </div>
+                      </div>
         
-                    </div>
+                    
         
-                </div>
-        
-        
-                  </div>
-                
-                
             </div>
+        
+        
+            
+                
+                
+          </div>
+
           )
     }
 

@@ -76,7 +76,7 @@ async function handleSubmit(e) {
                 : null
             }
 
-            <form className="m-2 p-2" onSubmit={handleSubmit}>
+            <form className="m-2 p-2 flex flex-col" onSubmit={handleSubmit}>
 
                         <label htmlFor="email" className="form-label-style"> Email: </label>
 
