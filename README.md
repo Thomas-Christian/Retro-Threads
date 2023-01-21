@@ -4,7 +4,7 @@ A marketplace for 'buying' and 'selling' vintage and secondhand fashion items.
 
 Developed by myself as my final project. Due to time constraints I was unable to add everything I had hoped to. I plan to keep working on this!
 
-#API 
+# API 
 
 | Method | Path         | Purpose         |
 | ------ | ------------ | --------------- |
