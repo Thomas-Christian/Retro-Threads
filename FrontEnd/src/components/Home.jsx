@@ -4,9 +4,11 @@ import React, { useEffect, useState } from "react";
 import ViewItems from "./items/ViewItems";
 
 import { HideOn } from "react-hide-on-scroll";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [items, setItems] = useState([]);
+  const navigate = useNavigate();
 
   // FETCHING ITEM(S) DATA
   useEffect(() => {
@@ -68,25 +70,25 @@ export default function Home() {
               Search By Style
             </h1>
 
-            <button className="h-12 btn-primary bg-primary w-24 my-2">
+            <button className="h-12 btn-primary bg-primary w-24 my-2" onClick={(e) => navigate(`/item/style/${e.target.innerHTML}`)}>
               <p className="w-full text-center font-secondary font-thin text-xs md:text-base text-secondary">
                 Vintage
               </p>
             </button>
 
-            <button className="h-12 btn-primary bg-primary 100 w-24 my-2">
+            <button className="h-12 btn-primary bg-primary 100 w-24 my-2" onClick={(e) => navigate(`/item/style/${e.target.innerHTML}`)}>
               <p className="w-full text-center font-secondary font-thin text-xs md:text-base text-secondary">
                 Y2K
               </p>
             </button>
 
-            <button className="h-12 btn-primary bg-primary w-24 my-2">
+            <button className="h-12 btn-primary bg-primary w-24 my-2" onClick={(e) => navigate(`/item/style/${e.target.innerHTML}`)}>
               <p className="w-full text-center font-secondary font-thin text-xs md:text-base text-secondary">
                 Streetwear
               </p>
             </button>
 
-            <button className="h-12 btn-primary bg-primary w-24 my-2">
+            <button className="h-12 btn-primary bg-primary w-24 my-2" onClick={(e) => navigate(`/item/style/${e.target.innerHTML}`)}>
               <p className="w-full text-center font-secondary font-thin text-xs md:text-base text-secondary">
                 Designer
               </p>
