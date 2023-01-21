@@ -1,8 +1,9 @@
 # RetroThreads 
 
 A marketplace for 'buying' and 'selling' vintage and secondhand fashion items.  
+Developed by myself as my final project. 
 
-Developed by myself as my final project. Due to time constraints I was unable to add everything I had hoped to. I plan to keep working on this!
+Users can navigate the site to see all items posted, items posted by a specific user even items matching specific styles. If users make an account they can post new items, otherwise they can only browse. Due to time constraints I was unable to add everything I had hoped to. I plan to keep working on this! 
 
 # API 
 
