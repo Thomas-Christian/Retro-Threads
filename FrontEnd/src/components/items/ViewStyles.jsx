@@ -12,7 +12,7 @@ export default function ViewStyles() {
   // FETCHING ITEM(S) DATA
   useEffect(() => {
     const fetchItems = async () => {
-      const response = await fetch(`http://localhost:5000/item/style/${params.style}`);
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}api/items/styles/${params.style}`);
       const data = await response.json();
       setAllItems(data);
     };
@@ -25,11 +25,11 @@ export default function ViewStyles() {
         <div className="flex flex-col h-screen ml-[4.48rem] items-center justify-center px-6 py-8">
           <h1
           id="logo"
-          className="text-5xl sm:text-8xl tracking-wide font-lily-script text-center font-bold text-primary p-3 pb-6 [text-shadow:_1px_5px_2px_black]"
+          className="text-5xl sm:text-8xl tracking-wide font-lily-script text-center font-bold text-primary p-3 pb-6"
         >
           {params.style} Items
           </h1>
-          <h1>
+          <h1 className="text-center">
             Uh oh! No items with this style have been posted yet
           </h1>
         </div>
@@ -40,7 +40,7 @@ export default function ViewStyles() {
       <div className="flex flex-col h-screen ml-[4.48rem] items-center justify-center px-6 py-8">
         <h1
           id="logo"
-          className="text-5xl sm:text-8xl tracking-wide font-lily-script text-center font-bold text-primary p-3 pb-6 [text-shadow:_1px_5px_2px_black]"
+          className="text-5xl sm:text-8xl tracking-wide font-lily-script text-center font-bold text-primary p-3 pb-6 "
         >
           {params.style} Items
         </h1>

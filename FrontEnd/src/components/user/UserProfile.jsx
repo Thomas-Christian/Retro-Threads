@@ -22,7 +22,7 @@ export default function UserProfile() {
   // FETCHING USER DATA
   useEffect(() => {
     const fetchUser = async () => {
-      const response = await fetch(`http://localhost:5000/user/${userID}`);
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}api/users/${userID}`);
       const data = await response.json();
       setUser(data);
     };

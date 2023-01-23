@@ -4,14 +4,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-export default function ViewItems() {
+export default function ViewItems({items}) {
   const navigate = useNavigate();
   const [allItems, setAllItems] = useState([]);
 
   // FETCHING ITEM(S) DATA
   useEffect(() => {
     const fetchItems = async () => {
-      const response = await fetch(`http://localhost:5000/item/view/all`);
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}api/items/view/all`);
+      
       const data = await response.json();
       setAllItems(data);
     };
@@ -19,9 +20,9 @@ export default function ViewItems() {
   }, [setAllItems]);
 
   // CHECK IF ON HOMEPAGE OR VIEWALL TO CENTER DIV OR NOT
-  if (window.location.pathname === "/item/view/all") {
+  if (window.location.pathname === "/items/view/all") {
     return (
-      <div className="flex flex-col h-screen ml-[4.48rem] items-center justify-center px-6 py-8">
+      <div className="flex flex-col h-screen md:pl-[4.48rem] pl-[3rem] items-center justify-center px-6 py-8">
         <h1
           id="logo"
           className="text-5xl sm:text-8xl tracking-wide font-lily-script text-center font-bold text-primary p-3 pb-6 [text-shadow:_1px_5px_2px_black]"
@@ -38,7 +39,7 @@ export default function ViewItems() {
                 key={item._id}
                 className="border-neutral-20 border rounded-lg bg-primary shadow-md m-4 h-min w-64 md:w-96"
                 onClick={() => {
-                  navigate(`/item/view/${item._id}`);
+                  navigate(`/items/view/${item._id}`);
                 }}
               >
                 <div className="p-2 flex flex-col items-center">
@@ -83,13 +84,13 @@ export default function ViewItems() {
         id="itemContainer"
         className="h-full flex flex-wrap flex-row justify-evenly"
       >
-        {allItems &&
-          allItems.map((item) => (
+        {items &&
+          items.map((item) => (
             <div
               key={item._id}
               className="border-neutral-20 border rounded-lg bg-primary shadow-md m-4 w-64 md:w-96"
               onClick={() => {
-                navigate(`/item/view/${item._id}`);
+                navigate(`/items/view/${item._id}`);
               }}
             >
               <div className="p-2 flex flex-col items-center">

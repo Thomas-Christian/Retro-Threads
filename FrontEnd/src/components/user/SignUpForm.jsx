@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUpForm() {
   const [user, setUser] = useState({
@@ -8,20 +9,30 @@ export default function SignUpForm() {
     password: "",
   });
 
+  const navigate = useNavigate();
+
   async function handleSubmit(e) {
     e.preventDefault();
 
-    await fetch(`http://localhost:5000/user/sign-up`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    });
+    try {
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}api/users/sign-up`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+
+      if(response.status === 200) {
+        navigate("/users/login") }
+
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
-    <div className="flex flex-col h-screen ml-[4.48rem] items-center justify-center px-6 py-8">
+    <div className="flex flex-col h-screen md:pl-[4.48rem] pl-[3rem] items-center justify-center px-6 py-8">
       <div className="w-full bg-primary rounded-lg shadow md:mt-0 sm:max-w-lg xl:p-0">
         <h1 className="text-xl text-center font-bold p-2 text-secondary md:text-2xl">
           Register

@@ -19,16 +19,16 @@ export default function Navigation() {
   let loginActions = (
     <div className="text-center">
       <li className="py-3 group">
-        <button className="nav-btn" onClick={() => navigate("/user/login")}>
-          <FontAwesomeIcon icon={faRightToBracket} size="2x" />
+        <button className="nav-btn" onClick={() => navigate("/users/login")}>
+          <FontAwesomeIcon icon={faRightToBracket} className="nav-icon" />
 
           <span className="tooltip-text z-1">Login </span>
         </button>
       </li>
 
       <li className="py-3 group">
-        <button className="nav-btn" onClick={() => navigate("/user/sign-up")}>
-          <FontAwesomeIcon icon={faUserPlus} size="2x" />
+        <button className="nav-btn" onClick={() => navigate("/users/sign-up")}>
+          <FontAwesomeIcon icon={faUserPlus} className="nav-icon" />
 
           <span className="tooltip-text z-1">Sign-Up </span>
         </button>
@@ -40,7 +40,7 @@ export default function Navigation() {
     <div id="appRoutes" className="text-center absolute bottom-1">
       <li id="home" className="py-3 group">
         <button className="nav-btn" onClick={() => navigate("/")}>
-          <FontAwesomeIcon icon={faHouseChimney} size="2x" />
+          <FontAwesomeIcon icon={faHouseChimney} className="nav-icon" />
 
           <span className="tooltip-text z-1">Home </span>
         </button>
@@ -50,10 +50,10 @@ export default function Navigation() {
         <button
           className="nav-btn"
           onClick={() => {
-            navigate("/item/view/all");
+            navigate("/items/view/all");
           }}
         >
-          <FontAwesomeIcon icon={faShop} size="2x" />
+          <FontAwesomeIcon icon={faShop} className="nav-icon" />
 
           <span className="tooltip-text z-1">Shop </span>
         </button>
@@ -70,9 +70,9 @@ export default function Navigation() {
         <li className="py-3 group">
           <button
             className="nav-btn"
-            onClick={() => navigate(`/user/${userID}`)}
+            onClick={() => navigate(`/users/${userID}`)}
           >
-            <FontAwesomeIcon icon={faAddressCard} size="2x" />
+            <FontAwesomeIcon icon={faAddressCard} className="md:h-10 md:w-10 h-4" />
 
             <span className="tooltip-text z-1">View Profile </span>
           </button>
@@ -86,7 +86,7 @@ export default function Navigation() {
               navigate("/");
             }}
           >
-            <FontAwesomeIcon icon={faCircleMinus} size="2x" />
+            <FontAwesomeIcon icon={faCircleMinus} className="nav-icon" />
 
             <span className="tooltip-text z-1">Logout </span>
           </button>
@@ -98,7 +98,7 @@ export default function Navigation() {
       <div id="appRoutes" className="text-center absolute bottom-1">
         <li id="home" className="py-3 group">
           <button className="nav-btn" onClick={() => navigate("/")}>
-            <FontAwesomeIcon icon={faHouseChimney} size="2x" />
+            <FontAwesomeIcon icon={faHouseChimney} className="md:w-10 w-4" />
 
             <span className="tooltip-text z-1">Home </span>
           </button>
@@ -111,7 +111,7 @@ export default function Navigation() {
               navigate("/item/new");
             }}
           >
-            <FontAwesomeIcon icon={faSquarePlus} size="2x" />
+            <FontAwesomeIcon icon={faSquarePlus} className="nav-icon" />
 
             <span className="tooltip-text z-1">New item </span>
           </button>
@@ -124,7 +124,7 @@ export default function Navigation() {
               navigate("/item/view/all");
             }}
           >
-            <FontAwesomeIcon icon={faShop} size="2x" />
+            <FontAwesomeIcon icon={faShop} className="nav-icon" />
 
             <span className="tooltip-text z-1">Shop </span>
           </button>
@@ -137,7 +137,7 @@ export default function Navigation() {
     <>
       <div
         id="sideNav"
-        className="fixed top-0 left-0 z-20 h-screen px-2 py-2 flex flex-col bg-primary shadow-md"
+        className="fixed top-0 left-0 z-20 min-h-screen px-2 py-2 flex flex-col bg-primary shadow-md"
       >
         <ul>
           {loginActions}

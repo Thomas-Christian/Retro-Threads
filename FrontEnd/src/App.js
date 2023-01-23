@@ -23,14 +23,14 @@ function App() {
           
           <Route exact path="/" element={ <Home />} />
 
-          <Route path="/user/sign-up" element={ <SignUpForm /> } />
-          <Route path="/user/login" element={ <LoginForm /> } />
-          <Route path="/user/:id" element={ <UserProfile /> } />
+          <Route path="/users/sign-up" element={ <SignUpForm /> } />
+          <Route path="/users/login" element={ <LoginForm /> } />
+          <Route path="/users/:id" element={ <UserProfile /> } />
         
-          <Route path="/item/new" element={ <NewItem /> } />
-          <Route path='/item/view/all' element={ <ViewItems />} />
-          <Route path="/item/view/:id" element={ <ViewSingleItem /> } />
-          <Route path="/item/style/:style" element={ <ViewStyles /> } />
+          <Route path="/items/new" element={ <NewItem /> } />
+          <Route path='/items/view/all' element={ <ViewItems />} />
+          <Route path="/items/view/:id" element={ <ViewSingleItem /> } />
+          <Route path="/items/style/:style" element={ <ViewStyles /> } />
 
         </Routes>
 

@@ -14,7 +14,7 @@ export default function ViewSingleItem() {
   useEffect(() => {
     const fetchItem = async () => {
       const response = await fetch(
-        `http://localhost:5000/item/view/${params.id}`
+        `${process.env.REACT_APP_SERVER_URL}api/items/view/${params.id}`
       );
       const data = await response.json();
       setSelectedItem(data);
@@ -26,7 +26,7 @@ export default function ViewSingleItem() {
   async function deleteItem() {
 
     try {
-      await fetch(`http://localhost:5000/item/delete/${params.id}`, {
+      await fetch(`${process.env.REACT_APP_SERVER_URL}api/items/${params.id}`, {
         headers: {
           "Content-Type": ""
         },
@@ -59,7 +59,7 @@ export default function ViewSingleItem() {
         <button
           className="btn-primary text-quaternary"
           onClick={() => {
-            navigate(`/user/${selectedItem.user}`);
+            navigate(`/users/${selectedItem.user}`);
           }}
         >
           <p className="font-lily-script font-thin text-base"> User </p>
@@ -86,8 +86,8 @@ export default function ViewSingleItem() {
     if (selectedItem.img) {
       itemImages = selectedItem.img.map((image) => (
         <img
-          key={""}
-          className="object-cover object-bottom flex-shrink max-w-[50rem] rounded-lg m-2"
+          key={image}
+          className="object-scale-down lg:max-w-[50rem] max-w-[10rem] rounded-lg m-2 shadow-md"
           src={`${image}`}
           alt=""
         />
@@ -97,13 +97,13 @@ export default function ViewSingleItem() {
     return (
       <div
         id="screen"
-        className="w-full min-h-screen top-0 absolute flex flex-col items-center justify-center pl-[4.48rem] bg-scroll bg-hero bg-center bg-repeat -z-20"
+        className="w-full min-h-screen top-0 absolute flex flex-col items-center justify-center md:pl-[4.48rem] pl-[3rem] bg-scroll bg-hero bg-center bg-repeat -z-20"
       >
         <div
           id="itemContainer"
-          className="h-full flex flex-col rounded-lg bg-secondary shadow-md "
+          className="h-full flex flex-col m-2 rounded-lg bg-secondary shadow-md "
         >
-          <div id="images" className="flex flex-row justify-evenly px-3 pt-3">
+          <div id="images" className="flex flex-row flex-wrap justify-evenly m-1 px-3 pt-3">
             {itemImages}
           </div>
 

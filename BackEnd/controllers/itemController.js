@@ -4,7 +4,7 @@ const item = express.Router();
 const Item = require("../models/item");
 
 // CREATE
-item.post("/new", async (req, res) => {
+item.post("/", async (req, res) => {
   try {
     let { ...recievedData } = req.body;
 
@@ -43,7 +43,7 @@ item.get("/view/home", async (req, res) => {
 });
 
 // SHOW BY STYLE
-item.get("/style/:style", async (req, res) => {
+item.get("/styles/:style", async (req, res) => {
   try {
     let items = await Item.find({ 
       styleCategory: `${req.params.style}` 
@@ -66,7 +66,7 @@ item.get("/view/:id", async (req, res) => {
 });
 
 // DELETE AN ITEM
-item.delete("/delete/:id", async (req, res) => {
+item.delete("/:id", async (req, res) => {
   try {
     let item = await Item.findByIdAndDelete(req.params.id);
     res.json({ message: `Item ${item.name} Deleted` });

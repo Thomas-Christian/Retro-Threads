@@ -26,7 +26,7 @@ export default function NewItem() {
 
     //console.log(item)
 
-    await fetch(`http://localhost:5000/item/new`, {
+    await fetch(`${process.env.REACT_APP_SERVER_URL}api/items/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +39,7 @@ export default function NewItem() {
 
   if (!currentUser) {
     return (
-      <div className="flex flex-col h-screen ml-[4.48rem] items-center justify-center px-6 py-8">
+      <div className="flex flex-col h-screen md:pl-[4.48rem] pl-[3rem] items-center justify-center px-6 py-8">
         <h1> Please Sign In to Post </h1>
       </div>
     );

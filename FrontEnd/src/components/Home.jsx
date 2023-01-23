@@ -13,7 +13,7 @@ export default function Home() {
   // FETCHING ITEM(S) DATA
   useEffect(() => {
     const fetchItems = async () => {
-      const response = await fetch(`http://localhost:5000/item/view/home`);
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}api/items/view/home`);
       const data = await response.json();
       setItems(data);
     };
@@ -24,12 +24,12 @@ export default function Home() {
     <>
       <div
         id="screen"
-        className="w-full min-h-screen top-0 absolute flex flex-col items-center justify-between pl-[4.48rem] bg-scroll bg-hero bg-center bg-repeat -z-20"
+        className="w-full min-h-screen top-0 absolute flex flex-col items-center justify-between md:pl-[4.48rem] pl-[3rem] bg-scroll bg-hero bg-center bg-repeat -z-20"
       >
         <div id="header" className="flex flex-col items-center my-3 z-10">
           <h1
             id="logo"
-            className="text-5xl sm:text-8xl tracking-wide font-lily-script text-center font-bold text-primary p-3 [text-shadow:_1px_5px_2px_black]"
+            className="text-5xl sm:text-7xl lg:text-9xl tracking-wide font-lily-script text-center font-bold text-primary p-3"
           >
             RetroThreads
           </h1>
@@ -70,25 +70,25 @@ export default function Home() {
               Search By Style
             </h1>
 
-            <button className="h-12 btn-primary bg-primary w-24 my-2" onClick={(e) => navigate(`/item/style/${e.target.innerHTML}`)}>
+            <button className="h-12 btn-primary bg-primary w-24 my-2" onClick={(e) => navigate(`/items/style/${e.target.innerHTML}`)}>
               <p className="w-full text-center font-secondary font-thin text-xs md:text-base text-secondary">
                 Vintage
               </p>
             </button>
 
-            <button className="h-12 btn-primary bg-primary 100 w-24 my-2" onClick={(e) => navigate(`/item/style/${e.target.innerHTML}`)}>
+            <button className="h-12 btn-primary bg-primary 100 w-24 my-2" onClick={(e) => navigate(`/items/style/${e.target.innerHTML}`)}>
               <p className="w-full text-center font-secondary font-thin text-xs md:text-base text-secondary">
                 Y2K
               </p>
             </button>
 
-            <button className="h-12 btn-primary bg-primary w-24 my-2" onClick={(e) => navigate(`/item/style/${e.target.innerHTML}`)}>
+            <button className="h-12 btn-primary bg-primary w-24 my-2" onClick={(e) => navigate(`/items/style/${e.target.innerHTML}`)}>
               <p className="w-full text-center font-secondary font-thin text-xs md:text-base text-secondary">
                 Streetwear
               </p>
             </button>
 
-            <button className="h-12 btn-primary bg-primary w-24 my-2" onClick={(e) => navigate(`/item/style/${e.target.innerHTML}`)}>
+            <button className="h-12 btn-primary bg-primary w-24 my-2" onClick={(e) => navigate(`/items/style/${e.target.innerHTML}`)}>
               <p className="w-full text-center font-secondary font-thin text-xs md:text-base text-secondary">
                 Designer
               </p>

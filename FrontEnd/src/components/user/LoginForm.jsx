@@ -12,7 +12,7 @@ export default function LoginForm() {
     password: "",
   });
 
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ export default function LoginForm() {
 
     setLoading(true);
 
-    const response = await fetch(`http://localhost:5000/user/login`, {
+    const response = await fetch(`${process.env.REACT_APP_SERVER_URL}api/users/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,17 +32,22 @@ export default function LoginForm() {
 
     const data = await response.json();
 
+    if (response.status !== 200) {
+      setErrorMessage(true);
+      setLoading(false);
+    }
+
     if (response.status === 200) {
       await setCurrentUser(data.user);
       setLoading(false);
       navigate("/");
-    } else {
-      setErrorMessage(data.message);
-    }
+    } 
+
   }
-  if (loading) {
+
+  while (loading) {
     return (
-      <div className="flex flex-col h-screen ml-[4.48rem] items-center justify-center px-6 py-8">
+      <div className="flex flex-col h-screen md:pl-[4.48rem] pl-[3rem] items-center justify-center px-6 py-8">
         <h1 className="text-4xl font-lily-script tracking-wide text-center text-primary font-bold p-3 ">
           Loading
         </h1>
@@ -56,18 +61,25 @@ export default function LoginForm() {
     );
   }
 
+  while (errorMessage) {
+    return (
+      <div className="flex flex-col h-screen md:pl-[4.48rem] pl-[3rem] items-center justify-center px-6 py-8">
+        <h1 className="text-4xl font-lily-script tracking-wide text-center text-primary font-bold p-3 ">
+          Uh oh something went wrong. 
+        </h1>
+        <p>
+          Please make sure your email and password are correct
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col h-screen ml-[4.48rem] items-center justify-center px-6 py-8">
       <div className="w-full bg-primary rounded-lg shadow md:mt-0 sm:max-w-lg xl:p-0">
         <h1 className="text-xl text-center font-bold p-2 text-secondary md:text-2xl">
           Sign in
         </h1>
-
-        {errorMessage !== null ? (
-          <div className="alert" role="alert">
-            {errorMessage}
-          </div>
-        ) : null}
 
         <form className="m-2 p-2 flex flex-col" onSubmit={handleSubmit}>
           <label htmlFor="email" className="form-label-style">
