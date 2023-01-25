@@ -7,6 +7,8 @@ Created using MongoDB, Express, React and Node.js
 
 Users can navigate the site to see all items posted, items posted by a specific user even items matching specific styles. If users make an account they can post new items, otherwise they can only browse. Due to time constraints I was unable to add everything I had hoped to. I plan to keep working on this! 
 
+Deplyoed on AWS - http://retrothreads.us-east-1.elasticbeanstalk.com/ 
+
 # API 
 
 | Method | Path         | Purpose         |
